@@ -1,8 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Sidebar } from '../components/Sidebar';
 import { Outlet } from 'react-router-dom';
-import { Search, Bell, User, LogOut, LogIn } from 'lucide-react';
-import { Button } from '../components/Button';
+import { Search, Bell, User, LogOut } from 'lucide-react';
 
 // Define the shape of the client principal returned by Azure SWA built-in auth
 interface ClientPrincipal {
@@ -30,7 +29,7 @@ export function TopNav() {
                 setIsLoading(false);
             }
         }
-        
+
         // In local Vite dev, this will fail or return null since /.auth/me doesn't exist locally
         // It will only work when hosted on Azure Static Web Apps.
         getUserInfo();
@@ -58,32 +57,23 @@ export function TopNav() {
                 </button>
 
                 <div className="relative flex-shrink-0 flex items-center gap-3 border-l pl-4 ml-2">
-                    {!isLoading && (
-                        user ? (
-                            <>
-                                <div className="text-right hidden sm:block">
-                                    <p className="text-sm font-medium text-gray-900">{user.userDetails}</p>
-                                    <p className="text-xs text-gray-500">Azure AD User</p>
-                                </div>
-                                <div className="h-8 w-8 rounded-full bg-primary-100 flex items-center justify-center text-primary-700 font-bold border border-primary-200">
-                                    <User size={16} />
-                                </div>
-                                <a 
-                                    href="/.auth/logout"
-                                    className="ml-2 p-2 text-gray-400 hover:text-red-600 hover:bg-red-50 rounded-md transition-colors"
-                                    title="Logout"
-                                >
-                                    <LogOut size={18} />
-                                </a>
-                            </>
-                        ) : (
-                            <a href="/.auth/login/aad">
-                                <Button className="flex items-center gap-2" size="sm">
-                                    <LogIn size={16} />
-                                    <span>Azure SSO</span>
-                                </Button>
+                    {!isLoading && user && (
+                        <>
+                            <div className="text-right hidden sm:block">
+                                <p className="text-sm font-medium text-gray-900">{user.userDetails}</p>
+                                <p className="text-xs text-gray-500">Azure AD User</p>
+                            </div>
+                            <div className="h-8 w-8 rounded-full bg-primary-100 flex items-center justify-center text-primary-700 font-bold border border-primary-200">
+                                <User size={16} />
+                            </div>
+                            <a
+                                href="/.auth/logout?post_logout_redirect_uri=/"
+                                className="ml-2 p-2 text-gray-400 hover:text-red-600 hover:bg-red-50 rounded-md transition-colors"
+                                title="Logout"
+                            >
+                                <LogOut size={18} />
                             </a>
-                        )
+                        </>
                     )}
                     {isLoading && (
                         <div className="h-8 w-8 rounded-full bg-gray-100 animate-pulse"></div>
