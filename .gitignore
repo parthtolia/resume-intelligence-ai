@@ -12,6 +12,9 @@ __pycache__/
 venv/
 env/
 .env
+*.log
+*logs*.txt
+*_out.txt
 
 # OS
 .DS_Store
