@@ -1,0 +1,26 @@
+{
+    "routes": [
+        {
+            "route": "/.auth/login/aad",
+            "statusCode": 200
+        },
+        {
+            "route": "/*",
+            "allowedRoles": [
+                "authenticated"
+            ]
+        }
+    ],
+    "responseOverrides": {
+        "401": {
+            "redirect": "/.auth/login/aad?post_login_redirect_uri=/",
+            "statusCode": 302
+        }
+    },
+    "navigationFallback": {
+        "rewrite": "/index.html",
+        "exclude": [
+            "/*.{png,jpg,jpeg,gif,css,js}"
+        ]
+    }
+}
