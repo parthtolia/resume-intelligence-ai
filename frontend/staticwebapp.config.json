@@ -1,21 +1,28 @@
 {
     "routes": [
         {
-            "route": "/.auth/login/aad",
+            "route": "/.auth/*",
             "allowedRoles": [
                 "anonymous",
                 "authenticated"
             ]
         },
         {
-            "route": "/.auth/logout",
+            "route": "/assets/*",
             "allowedRoles": [
                 "anonymous",
                 "authenticated"
             ]
         },
         {
-            "route": "/.auth/me",
+            "route": "/vite.svg",
+            "allowedRoles": [
+                "anonymous",
+                "authenticated"
+            ]
+        },
+        {
+            "route": "/favicon.ico",
             "allowedRoles": [
                 "anonymous",
                 "authenticated"
@@ -44,7 +51,11 @@
     "navigationFallback": {
         "rewrite": "/index.html",
         "exclude": [
-            "/*.{png,jpg,jpeg,gif,css,js}"
+            "/assets/*",
+            "/*.svg",
+            "/*.ico",
+            "/*.png",
+            "/*.jpg"
         ]
     }
 }
