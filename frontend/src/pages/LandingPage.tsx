@@ -19,9 +19,9 @@ export default function LandingPage() {
                         <a href="#pricing" className="hover:text-primary-600 transition-colors">Pricing</a>
                     </div>
                     <div className="flex items-center gap-4">
-                        <a href="/.auth/login/aad" className="text-sm font-medium text-gray-600 hover:text-gray-900">Log in</a>
+                        <a href="/.auth/login/aad?post_login_redirect_uri=/dashboard" className="text-sm font-medium text-gray-600 hover:text-gray-900">Log in</a>
                         <Button asChild>
-                            <a href="/.auth/login/aad">Get Started</a>
+                            <a href="/.auth/login/aad?post_login_redirect_uri=/dashboard">Get Started</a>
                         </Button>
                     </div>
                 </div>
@@ -47,7 +47,7 @@ export default function LandingPage() {
 
                     <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                         <Button size="lg" className="h-12 px-8 text-base shadow-lg shadow-primary-500/20" asChild>
-                            <a href="/.auth/login/aad">
+                            <a href="/.auth/login/aad?post_login_redirect_uri=/dashboard">
                                 Sign in with Azure <ArrowRight className="ml-2 h-4 w-4" />
                             </a>
                         </Button>
@@ -91,7 +91,7 @@ export default function LandingPage() {
                     <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">Ready to transform your hiring?</h2>
                     <p className="text-primary-100 text-lg mb-10">Join thousands of companies using AI to build their dream teams.</p>
                     <Button size="lg" className="bg-white text-primary-700 hover:bg-gray-50 h-14 px-8 text-lg font-semibold" asChild>
-                        <a href="/.auth/login/aad">Get Started Today</a>
+                        <a href="/.auth/login/aad?post_login_redirect_uri=/dashboard">Get Started Today</a>
                     </Button>
                 </div>
             </section>
