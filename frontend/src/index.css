@@ -1,10 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Fjalla+One&family=Lato:wght@300;400;700&display=swap');
 @import "tailwindcss";
 
 @theme {
-  --color-primary-50: #eff6ff;
-  --color-primary-100: #dbeafe;
-  --color-primary-500: #3b82f6;
-  --color-primary-600: #2563eb;
-  --color-primary-700: #1d4ed8;
-  --color-primary-900: #1e3a8a;
+  /* Systra Red Palette */
+  --color-primary-50: #fdf2f4;
+  --color-primary-100: #fad5da;
+  --color-primary-200: #f5abb5;
+  --color-primary-300: #ed7285;
+  --color-primary-400: #e14460;
+  --color-primary-500: #c8102e;
+  --color-primary-600: #a80d26;
+  --color-primary-700: #880b1e;
+  --color-primary-800: #680817;
+  --color-primary-900: #480511;
+
+  /* Systra Navy */
+  --color-navy-900: #223240;
+  --color-navy-800: #2d4255;
+  --color-navy-700: #3a5269;
+}
+
+:root {
+  font-family: 'Lato', sans-serif;
 }
